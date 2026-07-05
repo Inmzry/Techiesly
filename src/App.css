@@ -10,7 +10,7 @@ h5 {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #e3e3e3;
+  background: #040410;
   overflow: hidden;
 }
 
@@ -29,7 +29,8 @@ img {
 
 /*Nav area*/
 .navbar {
-  background: #fff;
+  background: rgba(4, 4, 16, 0);
+  backdrop-filter: blur(10px);
   width: 100%;
   height: 100%;
   z-index: 999999999;
@@ -72,6 +73,9 @@ img {
   color: var(--social-bg);
   font-weight: 500;
   transition: transform 0.2s ease-in-out;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .navbar-link:hover {
@@ -105,6 +109,13 @@ img {
   padding: 8px 20px;
 }
 
+.btn-signup {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
 .btn:hover {
   transform: scale(1.1);
   cursor: pointer;
@@ -133,15 +144,26 @@ img {
 /*Banner area*/
 .banner-area {
   position: relative;
-  height: 600px;
+  height: auto;
   margin-top: 70px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .banner-image {
-  position: absolute;
+  position: relative;
   margin: 0;
   left: 50%;
   transform: translate(-50%);
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .banner-image::after {
@@ -155,8 +177,8 @@ img {
 
 .home-hero {
   padding: 20px;
-  position: relative;
-  top: 193px;
+  position: absolute;
+  top: 250px;
   text-align: left;
   width: 100%;
   max-width: 670px;
@@ -212,6 +234,17 @@ img {
   position: relative;
   width: 100%;
   padding-top: 70px;
+}
+
+.product-area::after {}
+
+.product-area-title {
+  text-align: left;
+  padding: 0 20px 0 20px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
 .products-flex {
@@ -582,4 +615,162 @@ img {
   max-width: 196px;
   font-size: 18px;
   padding: 15px;
+}
+
+
+/*footer section*/
+
+.footer {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-cta-wr {
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding: 135px 20px 20px 20px;
+}
+
+.cta-wr {
+  justify-content: center;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+  padding: 30px;
+}
+
+.cta-stroke {
+  background-image: linear-gradient(45deg, rgb(101, 32, 9), rgb(4, 4, 16) 23%, rgb(71, 86, 118) 76%, rgb(23, 106, 162));
+  width: 100%;
+  height: 100%;
+  border-radius: 0.63rem;
+  padding: 0.19rem;
+  overflow: hidden;
+}
+
+.cta-content {
+  z-index: 2;
+  background-color: #040410;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 23.25rem;
+  display: flex;
+  position: relative;
+  border-radius: 0.63rem;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+.cta-content h2 {
+  font-family: var(--font-tech);
+  font-size: 50px;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.cta-content p {
+  padding: 20px;
+}
+
+.cta-content-bg {
+  z-index: -1;
+  object-fit: cover;
+  width: 100%;
+  height:100%;
+  position: absolute;
+  inset: 0%;
+}
+
+.cta-back-bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0%;
+}
+
+
+.cta-back-bg-img-1 {
+  width: 42.25rem;
+  position: absolute;
+  inset: auto auto -15rem -14.8rem;
+  animation: fadeIn 2.4s ease-in-out infinite;
+}
+
+.cta-back-bg-img-2 {
+  width: 41.6563rem;
+  position: absolute;
+  inset: -15rem -14.8rem auto auto;
+  animation: fadeIn 2.4s ease-in-out infinite;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1600px) {
+  .home-hero {
+    top: 99px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home-hero.show {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .home-hero.show,
+  .home-hero {
+    transform: unset;
+    position: unset;
+    width: auto;
+  }
+}
+
+
+/*lighting effects section*/
+.product-area::before {
+  content: '';
+  position: absolute;
+  background: radial-gradient(circle, rgba(45, 45, 66, 0.85), transparent 55%);
+  animation: pulseGlow 2.4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  top: -24%;
+  right: -28%;
+  width: 60%;
+  height: 60%;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes fadeIn {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+   50% {
+    opacity: 1;
+  }
 }

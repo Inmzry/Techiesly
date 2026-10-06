@@ -663,6 +663,7 @@ img {
   border-radius: 0.63rem;
   flex-flow: column;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 
 .cta-content h2 {
@@ -680,7 +681,7 @@ img {
   z-index: -1;
   object-fit: cover;
   width: 100%;
-  height:100%;
+  height: 100%;
   position: absolute;
   inset: 0%;
 }
@@ -706,6 +707,112 @@ img {
   animation: fadeIn 2.4s ease-in-out infinite;
 }
 
+.cta-btn {
+  position: relative;
+  z-index: 2;
+}
+
+
+.button-glow {
+  background-color: #fff;
+  color: var(--black);
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: .63rem;
+  font-family: Robotomono, Arial, sans-serif;
+  font-size: .88rem;
+  font-weight: 500;
+  line-height: 1.1;
+  transition: all .3s ease-out;
+}
+
+.button-glow:hover {
+  transform: scale(1.1);
+}
+
+.button-glow-text-wr {
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
+  background-color: #040410;
+  justify-content: center;
+  align-items: center;
+  padding: .88rem 2rem;
+  font-weight: 500;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+.button-glow-text-wr::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+      rgba(120, 140, 255, 0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.button-glow-text-wr:hover::after {
+  opacity: 1;
+}
+
+/*footer links*/
+.footer-content-wr {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: var(--font-tech);
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+}
+
+.footer-item-wr {
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+}
+
+
+.footer-item-title-wr {
+  color: #fff;
+  text-align: start;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.footer-item-content {
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-links {
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.footer-link {
+  margin-bottom: 20px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #fff;
+}
 
 
 
@@ -717,12 +824,39 @@ img {
   }
 }
 
+@media screen and (max-width: 1350px) {
+  .product-area::before {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .home-hero.show {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+  .checkout-content {
+    display: block;
+    width: unset;
+  }
+
+  .checkout-list {
+    width: unset;
+  }
+
+  .checkout-total {
+    margin: 20px auto;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .checkout-items-lists .product-img {
+    width: 25%;
+    max-width: 159px;
   }
 }
 
@@ -733,6 +867,42 @@ img {
     transform: unset;
     position: unset;
     width: auto;
+  }
+
+  .title-name {
+    display: block;
+  }
+
+  .checkout-total {
+    width: unset;
+    max-width: unset;
+  }
+
+  /*footer*/
+  .footer-content-wr {
+    display: block;
+  }
+
+  .footer-item-title-wr {
+    text-align: center;
+  }
+
+  .footer-item-wr {
+    margin: 0 auto;
+  }
+
+  .footer-link {
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .checkout-items-lists {
+    display: block;
+  }
+
+  .checkout-items-lists img {
+    padding: unset;
   }
 }
 
@@ -766,11 +936,152 @@ img {
 }
 
 @keyframes fadeIn {
+
   0%,
   100% {
     opacity: 0.6;
   }
-   50% {
+
+  50% {
     opacity: 1;
+  }
+}
+
+/* ========================= BURGER MENU ========================= */
+.burger-menu {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.burger-menu span {
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+
+
+
+/* ========================= BURGER → X ANIMATION ========================= */
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================= MOBILE MENU ========================= */
+.mobile-menu {
+  display: none;
+}
+
+/* ========================= MOBILE RESPONSIVE ========================= */
+@media (max-width: 900px) {
+
+  /* Navbar */
+  .navbar {
+    position: relative;
+  }
+
+  /* Hide desktop navigation */
+  .navbar-links,
+  .navbar-auth-links,
+  .navbar-user {
+    display: none;
+  }
+
+  /* Show burger */
+  .burger-menu {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* Mobile dropdown */
+  .mobile-menu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    padding: 16px;
+    background: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    text-align: left;
+    width: 300px;
+  }
+
+  /* Open */
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* ========================= MOBILE LINKS ========================= */
+  .mobile-link {
+    display: block;
+    padding: 13px 10px;
+    color: #222;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-link:hover {
+    background: #f5f5f5;
+  }
+
+  /* ========================= MOBILE AUTH ========================= */
+  .mobile-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #eee;
+  }
+
+  .mobile-auth .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Logged-in user */
+  .mobile-user {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #555;
+    word-break: break-word;
+  }
+
+  .mobile-auth .btn {
+    width: unset;
+    text-align: unset;
+  }
+
+  .banner-area {
+    margin-top: unset;
   }
 }

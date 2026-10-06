@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function GradientTypewriter({
-  text = 'Hello, color',
+  text = "Hello, color",
   speed = 150,
-  gradient = 'linear-gradient(90deg, #378ADD, #1D9E75, #D4537E, #378ADD)',
-  cursorColor = '#1D9E75',
+  gradient = "linear-gradient(90deg, #378ADD, #1D9E75, #D4537E, #378ADD)",
+  cursorColor = "#1D9E75",
 }) {
-  const [displayed, setDisplayed] = useState('');
+  const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
     let i = 0;
@@ -23,15 +23,21 @@ function GradientTypewriter({
   }, [text, speed]);
 
   return (
-    <span style={{ fontWeight: 800, fontFamily: 'var(--font-tech)' }}>
+    <span
+      className="title-name"
+      style={{
+        fontWeight: 800,
+        fontFamily: "var(--font-tech)",
+      }}
+    >
       <span
         style={{
           background: gradient,
-          backgroundSize: '300% 100%',
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          animation: 'gradientShift 4s ease-in-out infinite',
+          backgroundSize: "300% 100%",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          animation: "gradientShift 4s ease-in-out infinite",
         }}
       >
         {displayed}
@@ -39,7 +45,7 @@ function GradientTypewriter({
       <span
         style={{
           color: cursorColor,
-          animation: 'blink 0.8s step-start infinite',
+          animation: "blink 0.8s step-start infinite",
         }}
       >
         |

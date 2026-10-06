@@ -27,7 +27,7 @@ const Checkout = () => {
             <ul className="checkout-list">
               {cartItems.map((item) => (
                 <li className="checkout-items-lists" key={item.id}>
-                  <img src={item.product.image} alt={item.product.name} />
+                  <img className="product-img" src={item.product.image} alt={item.product.name} />
                   <div className="checkout-item-details">
                     <h3 className="checkout-product-name">
                       {item.product.name}

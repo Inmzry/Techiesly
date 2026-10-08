@@ -121,6 +121,9 @@ const Auth = () => {
                 </span>
               </p>
             )}
+            <p>
+              ⚠ Demo Website — No real transactions or payments are processed.
+            </p>
           </div>
         </div>
       </div>

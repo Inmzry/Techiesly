@@ -16,7 +16,9 @@ function Home() {
           <img src={Banner} alt="banner image" />
         </figure>
         <div className="home-hero fade-up">
-          <h1 className="banner-title">Welcome to <GradientTypewriter text="TECHIESLY" speed={200} /></h1>
+          <h1 className="banner-title">
+            Welcome to <GradientTypewriter text="TECHIESLY" speed={200} />
+          </h1>
           <p className="banner-subtitle">
             Discover Amazing Products at Great Prices
           </p>
@@ -26,7 +28,7 @@ function Home() {
         <h2 className="product-area-title">Our Products</h2>
         <div className="products-flex">
           {products.map((product) => (
-           <ProductCard product={product} key={product.id} />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
